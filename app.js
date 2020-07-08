@@ -160,7 +160,7 @@ createWindow = () => {
     return false
   })
 
-  tray = new Tray('applet_icon.png')
+  tray = new Tray('assets/applet_icon.png')
   let contextMenu = Menu.buildFromTemplate([{
       label: 'Show App',
       click: () => {
