@@ -1,7 +1,7 @@
 {
   "name": "kraft.ui",
-  "description": "An UI prototyping tool for high-fidelity web and mobile app prototypes wireframes. UI components can be very modular.",
-  "author": "Loouis Low <loouis@dogsbark.net>, <loouis@gmail.com>",
+  "description": "A professional UI prototyping tool for the high-fidelity frontend web and mobile development. UI components can be very modular.",
+  "author": "Loouis Low <loouis@gmail.com>",
   "license": "MIT",
   "main": "app.js",
   "scripts": {
