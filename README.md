@@ -12,10 +12,13 @@ A professional UI prototyping tool for the high-fidelity frontend web and mobile
   <img src="assets/screenshot_2.jpeg" width="auto">
 </p>
 
+### _download
 
-## _prerequisites
+Download the [Community Edition](https://github.com/loouislow81/kraft.ui/releases/tag/4.6.22) binary for Linux.
 
-This application requires `NodeJs` runtime to be installed,
+### _prerequisites
+
+`Kraft` requires `NodeJS` runtime to be installed,
 
 ```bash
 $ sudo apt install -y nodejs
@@ -23,15 +26,11 @@ $ sudo npm i -g n
 $ sudo n latest
 ```
 
-## _run
+### _run
 
 ```bash
 $ npm start
 ```
-
-## _download
-
-Download the [Community Edition binary](https://github.com/loouislow81/kraft.ui/releases/tag/4.6.22) for Linux.
 
 ---
 
