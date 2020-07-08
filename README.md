@@ -1,7 +1,7 @@
 # kraft.ui
 
 <p align="left">
-  <img src="logo@ori.png" width="100">
+  <img src="assets/logo@ori.png" width="100">
 </p>
 
 A professional UI prototyping tool for the high-fidelity frontend web and mobile development. UI components can be very modular.
