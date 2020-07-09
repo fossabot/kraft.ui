@@ -8,6 +8,7 @@ A professional UI prototyping tool for the high-fidelity frontend web and mobile
 
 <p align="left">
   <img src="assets/screenshot_3.jpeg" width="auto">
+  <img src="assets/screenshot_4.jpeg" width="auto">
   <img src="assets/screenshot_1.jpeg" width="auto">
   <img src="assets/screenshot_2.jpeg" width="auto">
 </p>
