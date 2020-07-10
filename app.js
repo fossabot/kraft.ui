@@ -8,27 +8,19 @@
  * @copyright: Loouis Low (https://github.com/loouislow81/kraft.ui)
  */
 
-// paths
-
 const core = __dirname + '/core/'
 const views = __dirname + '/render/'
 
-// modules
-
 const { app, BrowserWindow, Menu, Tray, Dialog } = require('electron')
-const framework = require(core + 'sframework')
+const express = require('express')
 const http = require('http')
 const path = require('path')
 const consoleDetail = require('morgan')
 const bodyParser = require('body-parser')
 
-// short-hands
-
 const log = console.log
 
-// get renderer
-
-const server = framework()
+const server = express()
 
 // get api request parameters
 
@@ -38,13 +30,13 @@ server.use(bodyParser.urlencoded({
 
 server.use(bodyParser.json())
 
-server.use(framework.static(views))
+server.use(express.static(views))
 
 server.get('/', function(req, res) {
   res.sendFile(views + 'app.html')
 })
 
-//throw err
+// err
 server.use(function(err, req, res, next) {
   if (err) {
     throw err;
@@ -53,7 +45,6 @@ server.use(function(err, req, res, next) {
 })
 
 // create random port on each instant
-
 const port = server.listen(0, () => {
   log('[kraft] listening on port:', port.address().port);
 })
@@ -146,7 +137,6 @@ createWindow = () => {
   Menu.setApplicationMenu(menu)
 
   // tray menu
-
   win.on('minimize', (event) => {
     event.preventDefault()
     win.hide()
@@ -202,3 +192,4 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
