@@ -1,6 +1,7 @@
 node_modules
 .idea
 .c9
+dist
 
 yarn-erorr.log
 yarn.lock
