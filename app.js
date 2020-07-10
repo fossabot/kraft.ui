@@ -1,39 +1,36 @@
 #!/usr/bin/env node
 
-/**
- * @file: app.js
- * @description:
- * @license: MIT
- * @author: Loouis Low <loouis@gmail.com>
- * @copyright: Loouis Low (https://github.com/loouislow81/kraft.ui)
- */
-
-const core = __dirname + '/core/'
-const views = __dirname + '/render/'
-
 const { app, BrowserWindow, Menu, Tray, Dialog } = require('electron')
+
 const express = require('express')
+const server = express()
+
 const path = require('path')
 
 const log = console.log
 
-const server = express()
+
+//
+// express
+//
+
+const views = __dirname + '/app/'
 
 server.use(express.static(views))
 
-server.get('/', function(req, res) {
+server.get('/', (req, res) => {
   res.sendFile(views + 'app.html')
 })
 
 // err
-server.use(function(err, req, res, next) {
+server.use((err, req, res, next) => {
   if (err) {
-    throw err;
+    throw err
   }
   res.sendFile(views + 'app.html')
 })
 
-// create random port on each instant
+// create random port
 const port = server.listen(0, () => {
   log('[kraft] listening on port:', port.address().port);
 })
@@ -45,69 +42,56 @@ const port = server.listen(0, () => {
 let win, contextMenu
 
 createWindow = () => {
-  // create the browser window.
   win = new BrowserWindow({
+    title: 'Kraft',
+    icon: path.join(__dirname, 'assets/icon.png'),
     backgroundColor: '#262626',
     width: 1280,
     height: 700,
     frame: true,
-    title: 'Kraft',
-    icon: path.join(__dirname, 'icon.png'),
     webgl: true,
     show: true,
     webPreferences: {
       javascript: true,
       plugins: true,
-      zoomFactor: 1, // 100%
-      nodeIntegration: false // causes problem!
+      zoomFactor: 1,
+      nodeIntegration: false
     }
   })
 
-  // district localhost only
+  win.maximize()
   win.loadURL('http://127.0.0.1:' + port.address().port)
 
   // custom menu bar
-
-  const template = [{
+  const template = [
+    {
       label: 'Kraft',
-      submenu: [{
-          role: 'minimize',
-        },
-        {
-          role: 'quit'
-        }
+      submenu: [
+        { role: 'minimize' },
+        { role: 'quit' }
       ]
     },
     {
       label: 'View',
-      submenu: [{
-          role: 'reload',
-        },
-        {
-          role: 'resetzoom',
-        },
-        {
-          role: 'zoomin'
-        },
-        {
-          role: 'zoomout'
-        },
-        {
-          role: 'togglefullscreen'
-        }
+      submenu: [
+        { role: 'reload' },
+        { role: 'resetzoom' },
+        { role: 'zoomin' },
+        { role: 'zoomout' },
+        { role: 'togglefullscreen' }
       ]
     },
     {
       label: 'Help',
       submenu: [{
-          label: 'About',
+        label: 'About',
           click() {
             require('electron').dialog.showMessageBox({
               type: 'info',
               buttons: ['Close'],
               defaultId: 2,
               title: 'About',
-              message: 'Kraft (build v4.6.22)',
+              message: 'Kraft Community (build v4.6.22)',
               detail: 'A professional tool for crafting the web UI, prototyping and ready for production mockups.\n\n(https://github.com/loouislow81/kraft.ui)'
             })
           }
@@ -126,6 +110,7 @@ createWindow = () => {
   Menu.setApplicationMenu(menu)
 
   // tray menu
+
   win.on('minimize', (event) => {
     event.preventDefault()
     win.hide()
@@ -167,7 +152,7 @@ app.on('before-quit', () => {
   isQuiting = true
 })
 
-// quit when all windows are closed.
+// quit when all windows are closed
 app.on('window-all-closed', () => {
   if (app.listeners('window-all-closed').length === 1 && !option.interactive) {
     app.quit()
@@ -175,8 +160,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('activate', () => {
-  // on macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // dock icon is clicked and there are no other windows open
   if (win === null) {
     createWindow()
   }

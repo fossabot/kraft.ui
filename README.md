@@ -30,6 +30,7 @@ $ sudo n latest
 ### _run
 
 ```bash
+$ npm i
 $ npm start
 ```
 
