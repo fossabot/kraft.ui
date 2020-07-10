@@ -13,9 +13,7 @@ const views = __dirname + '/render/'
 
 const { app, BrowserWindow, Menu, Tray, Dialog } = require('electron')
 const express = require('express')
-const http = require('http')
 const path = require('path')
-const consoleDetail = require('morgan')
 
 const log = console.log
 

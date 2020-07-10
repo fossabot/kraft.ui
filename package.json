@@ -14,7 +14,6 @@
     "unsafe-perm": true
   },
   "dependencies": {
-    "body-parser": "^1.17.2",
     "electron": "^9.1.0",
     "express": "^4.17.1",
     "http": "^0.0.0",
