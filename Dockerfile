@@ -1,5 +1,5 @@
 # //
-# Docker container for `kraft.ui` (opensource)
+# Docker container for `kraft`
 # //
 
 FROM alpine:latest
@@ -16,21 +16,21 @@ RUN npm i -g n && n stable
 RUN npm i -g forever
 
 #### create project dir
-RUN mkdir -p /opt/kraft-ui
-WORKDIR /opt/kraft-ui
+RUN mkdir -p /opt/kraft
+WORKDIR /opt/kraft
 
 #--- packing project
 COPY file-to-dock.tar.gz /tmp/
 
 #--- extract project
-RUN tar -xvf /tmp/file-to-dock.tar.gz -C /opt/kraft-ui/
+RUN tar -xvf /tmp/file-to-dock.tar.gz -C /opt/kraft/
 
 #--- 
-RUN chmod +x /opt/kraft-ui/server.js
+RUN chmod +x /opt/kraft/server.js
 
 #### clean up
 RUN rm -rf /tmp/file-to-dock.tar.gz
-RUN rm -rf /opt/kraft-ui/Dockerfile
+RUN rm -rf /opt/kraft/Dockerfile
 
-#### set project run endpont
-ENTRYPOINT ["/opt/kraft-ui/server.js"]
+#### set project run endpoint
+ENTRYPOINT ["/opt/kraft/app.js"]
