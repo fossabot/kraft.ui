@@ -16,19 +16,10 @@ const express = require('express')
 const http = require('http')
 const path = require('path')
 const consoleDetail = require('morgan')
-const bodyParser = require('body-parser')
 
 const log = console.log
 
 const server = express()
-
-// get api request parameters
-
-server.use(bodyParser.urlencoded({
-  extended: false
-}))
-
-server.use(bodyParser.json())
 
 server.use(express.static(views))
 
