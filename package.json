@@ -7,7 +7,7 @@
   "main": "app.js",
   "scripts": {
     "start": "electron .",
-    "dist:linux": "env ARCH=x86_64 appimagetool --comp gzip $PWD/dist/x86-64  $PWD/dist/kraft_community_4.6.22_linux_x64"
+    "dist:linux": "cp -r node_modules dist/x86-64/ && env ARCH=x86_64 appimagetool --comp gzip $PWD/dist/x86-64  $PWD/dist/kraft_community_4.6.22_linux_x64"
   },
   "config": {
     "unsafe-perm": true
