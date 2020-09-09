@@ -1,4 +1,6 @@
 # kraft.ui
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Floouislow81%2Fkraft.ui.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Floouislow81%2Fkraft.ui?ref=badge_shield)
+
 
 <p align="left">
   <img src="assets/logo@ori.png" width="100">
@@ -37,3 +39,7 @@ $ npm start
 ---
 
 [MIT](https://github.com/loouislow81/kraft.ui/blob/master/LICENSE)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Floouislow81%2Fkraft.ui.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Floouislow81%2Fkraft.ui?ref=badge_large)
